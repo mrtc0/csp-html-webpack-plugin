@@ -25,12 +25,7 @@ module.exports = {
   // ...
   plugins: [
     new HtmlWebpackPlugin(),
-    new CspHtmlWebpackPlugin(HtmlWebpackPlugin, {
-      "base-uri": [`'self'`],
-      "object-src": [`'none'`],
-      "style-src": [`'self'`, `'unsafe-inline'`],
-      // script-src will auto generate
-    }),
+    new CspHtmlWebpackPlugin(HtmlWebpackPlugin),
   ],
 };
 ```
@@ -42,7 +37,7 @@ Will generate the following HTML:
   <head>
     <meta
       http-equiv="Content-Security-Policy"
-      content="base-uri 'self'; object-src 'none'; style-src 'self' 'unsafe-inline'; script-src 'strict-dynamic' 'sha256-...';"
+      content="base-uri 'self'; object-src 'none'; script-src 'strict-dynamic' 'sha256-...';"
     />
   </head>
   <body>
@@ -85,8 +80,8 @@ module.exports = {
     new CspHtmlWebpackPlugin(HtmlWebpackPlugin, {
       "base-uri": [`'self'`],
       "object-src": [`'none'`],
-      // Add style-src directive
-      "style-src": [`'self'`, `'unsafe-inline'`],
+      // Add img-src directive
+      "img-src": [`'self'`, `https://example.com`],
       // script-src will auto generate
     }),
   ],
