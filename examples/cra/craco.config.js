@@ -8,7 +8,6 @@ module.exports = {
         new CspHtmlWebpackPlugin(HtmlWebpackPlugin, {
           "base-uri": [`'self'`],
           "object-src": [`'none'`],
-          "style-src": [`'self'`]
         })
       ]
     }
