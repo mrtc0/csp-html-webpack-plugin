@@ -28,3 +28,25 @@ export const TemplateHtmlWithInlineScript = `
   </body>
 </html>
 `;
+
+export const TemplateHtmlWithInlineStyle = `
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Webpack App</title>
+    <script src="analytics.js"></script>
+    <style>
+        body {
+            background-color: red;
+        }
+    </style>
+  </head>
+  <body>
+    <script src="app.js"></script>
+    <script>
+        console.log("Hello World");
+    </script>
+  </body>
+</html>
+`;

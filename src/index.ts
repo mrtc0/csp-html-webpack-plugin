@@ -35,8 +35,9 @@ export class CspHtmlWebpackPlugin {
   ): void {
     const csp = new Csp(data.html, this.directiveSet);
     csp.refactorScriptTagsForHashSourceCSP();
-    const hashes = csp.getHashAllInlineScripts();
-    const strictCsp = csp.generateDirectiveSet(hashes);
+    const scriptHashes = csp.getHashAllInlineScripts();
+    const styleHashes = csp.getHashAllInlineStyles();
+    const strictCsp = csp.generateDirectiveSet(scriptHashes, styleHashes);
     csp.addCspMetaTag(strictCsp);
 
     data.html = csp.getDocument().documentElement.outerHTML;
