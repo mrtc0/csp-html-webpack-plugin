@@ -8,7 +8,12 @@
     "test": "jest",
     "release": "npm run build && changeset publish"
   },
-  "keywords": ["CSP", "Content-Security-Policy", "webpack", "html-webpack-plugin"],
+  "keywords": [
+    "CSP",
+    "Content-Security-Policy",
+    "webpack",
+    "html-webpack-plugin"
+  ],
   "homepage": "https://github.com/mrtc0/csp-html-webpack-plugin",
   "bugs": {
     "url": "https://github.com/mrtc0/csp-html-webpack-plugin/issues"
@@ -20,6 +25,7 @@
   "author": "mrtc0@ssrf.in",
   "license": "Apache-2.0",
   "devDependencies": {
+    "@changesets/cli": "^2.26.2",
     "@types/jest": "^29.5.3",
     "@types/jsdom": "^21.1.1",
     "html-webpack-plugin": "^5.5.3",
