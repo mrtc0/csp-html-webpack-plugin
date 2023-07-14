@@ -88,6 +88,21 @@ module.exports = {
 };
 ```
 
-## Todo's
+If you need to provide fallbacks for older browsers that do not support CSP Level 3, you can specify the `script-src` directive.
 
-- [ ] `unsafe-inline` and `unsafe-eval` configurable as an option
+```js
+module.exports = {
+  // ...
+  plugins: [
+    new HtmlWebpackPlugin(),
+    new CspHtmlWebpackPlugin(HtmlWebpackPlugin, {
+      "base-uri": [`'self'`],
+      "object-src": [`'none'`],
+      // If CSP Level 3 is not supported, then fallback.
+      // Will be generated: "script-src 'strict-dynamic' sha256-... 'unsafe-inline' 'unsafe-eval' http: https:;"
+      script-src": [`'unsafe-inline'`, `'unsafe-eval'`, 'http:', 'https:']
+    }),
+  ],
+};
+```
+

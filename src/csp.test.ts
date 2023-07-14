@@ -45,16 +45,16 @@ describe("Generate CSP directive set", () => {
     const directiveSet: DirectiveSet = {
       "base-uri": [`'self'`],
       "object-src": [`'none'`],
+      "script-src": [`'unsafe-inline'`, `'unsafe-eval'`],
       "style-src": [`'self'`, `'unsafe-inline'`],
     };
     const csp = new Csp(TemplateHtmlWithInlineScript, directiveSet);
     csp.refactorScriptTagsForHashSourceCSP();
     const hashes = csp.getHashAllInlineScripts();
-    const styleHashes = csp.getHashAllInlineStyles();
-    const strictCsp = csp.generateDirectiveSet(hashes, styleHashes);
+    const strictCsp = csp.generateDirectiveSet(hashes, []);
 
     expect(strictCsp).toBe(
-      "base-uri 'self';object-src 'none';style-src 'self' 'unsafe-inline';script-src 'strict-dynamic' 'sha256-S4W5IfMGp/y53v/Xg551TrOjlh3QicY3LqXAnb8sfrc=' 'sha256-mYdombCl/LUAKynRv79a3hlmGp7o1Dsd1wEeYRQb0NA=';"
+      "base-uri 'self';object-src 'none';script-src 'strict-dynamic' 'unsafe-inline' 'unsafe-eval' 'sha256-S4W5IfMGp/y53v/Xg551TrOjlh3QicY3LqXAnb8sfrc=' 'sha256-mYdombCl/LUAKynRv79a3hlmGp7o1Dsd1wEeYRQb0NA=';style-src 'self' 'unsafe-inline';"
     );
   });
 });
