@@ -51,7 +51,7 @@ Will generate the following HTML:
       scripts.forEach(function (scriptUrl) {
         var s = document.createElement("script");
         s.src = scriptUrl;
-        s.async = false; // preserve execution order.
+        s.async = false;
         document.body.appendChild(s);
       });
     </script>

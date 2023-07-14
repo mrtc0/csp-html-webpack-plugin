@@ -1,6 +1,7 @@
 import type { Compiler, Compilation } from "webpack";
 import HtmlWebpackPlugin from "html-webpack-plugin";
 import { Csp, DirectiveSet } from "./csp";
+import webpack from "webpack";
 
 const pluginName = "CspHtmlWebpackPlugin";
 
@@ -44,6 +45,16 @@ export class CspHtmlWebpackPlugin {
 
   apply(compiler: Compiler): void {
     compiler.hooks.compilation.tap(pluginName, (compilation: Compilation) => {
+      // https://github.com/google/strict-csp/issues/48
+      compilation.hooks.processAssets.intercept({
+        register: (tap) => {
+          if (tap.name === "HtmlWebpackPlugin") {
+            tap.stage = webpack.Compilation.PROCESS_ASSETS_STAGE_REPORT;
+          }
+          return tap;
+        },
+      });
+
       this.htmlWebpackPlugin
         .getHooks(compilation)
         .beforeEmit.tapAsync(

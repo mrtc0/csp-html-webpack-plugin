@@ -12,7 +12,7 @@ describe("Generate CSP directive set", () => {
     const strictCsp = csp.generateDirectiveSet(hashes);
 
     expect(strictCsp).toBe(
-      "base-uri 'self';object-src 'none';script-src 'strict-dynamic' 'sha256-i+xkhjPlTBs5uPQCVXqoKVd4vRPKE7xfcvCe+xg7U/0=';"
+      "base-uri 'self';object-src 'none';script-src 'strict-dynamic' 'sha256-mYdombCl/LUAKynRv79a3hlmGp7o1Dsd1wEeYRQb0NA=';"
     );
   });
 
@@ -23,7 +23,7 @@ describe("Generate CSP directive set", () => {
     const strictCsp = csp.generateDirectiveSet(hashes);
 
     expect(strictCsp).toBe(
-      "base-uri 'self';object-src 'none';script-src 'strict-dynamic' 'sha256-S4W5IfMGp/y53v/Xg551TrOjlh3QicY3LqXAnb8sfrc=' 'sha256-i+xkhjPlTBs5uPQCVXqoKVd4vRPKE7xfcvCe+xg7U/0=';"
+      "base-uri 'self';object-src 'none';script-src 'strict-dynamic' 'sha256-S4W5IfMGp/y53v/Xg551TrOjlh3QicY3LqXAnb8sfrc=' 'sha256-mYdombCl/LUAKynRv79a3hlmGp7o1Dsd1wEeYRQb0NA=';"
     );
   });
 
@@ -39,7 +39,7 @@ describe("Generate CSP directive set", () => {
     const strictCsp = csp.generateDirectiveSet(hashes);
 
     expect(strictCsp).toBe(
-      "base-uri 'self';object-src 'none';style-src 'self' 'unsafe-inline';script-src 'strict-dynamic' 'sha256-S4W5IfMGp/y53v/Xg551TrOjlh3QicY3LqXAnb8sfrc=' 'sha256-i+xkhjPlTBs5uPQCVXqoKVd4vRPKE7xfcvCe+xg7U/0=';"
+      "base-uri 'self';object-src 'none';style-src 'self' 'unsafe-inline';script-src 'strict-dynamic' 'sha256-S4W5IfMGp/y53v/Xg551TrOjlh3QicY3LqXAnb8sfrc=' 'sha256-mYdombCl/LUAKynRv79a3hlmGp7o1Dsd1wEeYRQb0NA=';"
     );
   });
 });
