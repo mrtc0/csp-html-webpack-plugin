@@ -106,7 +106,7 @@ export class Csp {
    *        scripts.forEach(function(scriptUrl) {
    *            var s = document.createElement('script');
    *            s.src = scriptUrl;
-   *            s.async = false; // preserve execution order.
+   *            s.async = false;
    *            document.body.appendChild(s);
    *        });
    *    </script>
@@ -120,15 +120,13 @@ export class Csp {
     }
 
     const srcListFormatted = scripts.map((s) => `'${s.src}'`).join();
-    return `
-    var scripts = [${srcListFormatted}];
+    return `var scripts = [${srcListFormatted}];
     scripts.forEach(function(scriptUrl) {
       var s = document.createElement('script');
       s.src = scriptUrl;
-      s.async = false; // preserve execution order.
+      s.async = false;
       document.body.appendChild(s);
-    });\n
-    `;
+    });\n`;
   }
 
   /**
