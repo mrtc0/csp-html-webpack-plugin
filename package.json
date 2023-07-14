@@ -9,7 +9,15 @@
     "release": "npm run build && changeset publish"
   },
   "keywords": ["CSP", "Content-Security-Policy", "webpack", "html-webpack-plugin"],
-  "author": "Kohei Morita",
+  "homepage": "https://github.com/mrtc0/csp-html-webpack-plugin",
+  "bugs": {
+    "url": "https://github.com/mrtc0/csp-html-webpack-plugin/issues"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/mrtc0/csp-html-webpack-plugin.git"
+  },
+  "author": "mrtc0@ssrf.in",
   "license": "Apache-2.0",
   "devDependencies": {
     "@types/jest": "^29.5.3",
@@ -22,6 +30,7 @@
     "webpack": "^5.88.1"
   },
   "publishConfig": {
-    "access": "public"
+    "access": "public",
+    "provenance": true
   }
 }
