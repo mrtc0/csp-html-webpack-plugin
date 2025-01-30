@@ -15,7 +15,7 @@ const options: webpack.Configuration = {
 test.skip("Compile", () => {
   webpack(
     options,
-    function (err: Error | undefined, stats: webpack.Stats | undefined): void {
+    function (err: Error | null, stats: webpack.Stats | undefined): void {
       if (err) {
         throw new Error(err.message);
       } else if (stats?.hasErrors()) {
